@@ -1,0 +1,18 @@
+[kubernetes:vars]
+ansible_ssh_private_key_file=/home/FinalProject-ec2-access-key-us-east-2.pem
+
+[kubernetes]
+kubernetes_master ansible_ssh_host=ubuntu@18.118.188.59
+kubernetes_slave ansible_ssh_host=ubuntu@52.14.202.61
+
+[kubernetes_master:vars]
+ansible_ssh_private_key_file=/home/FinalProject-ec2-access-key-us-east-2.pem
+
+[kubernetes_master]
+kubernetes_master ansible_ssh_host=ubuntu@18.118.188.59
+
+[kubernetes_slave:vars]
+ansible_ssh_private_key_file=/home/FinalProject-ec2-access-key-us-east-2.pem
+
+[kubernetes_slave]
+kubernetes_slave ansible_ssh_host=ubuntu@52.14.202.61

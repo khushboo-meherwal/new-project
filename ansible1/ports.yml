@@ -1,0 +1,60 @@
+---
+ - hosts: kubernetes_master
+  
+   tasks:
+    - name: Allow all access to port 80
+      become: true
+      ufw:
+        rule: allow
+        port: 80
+    
+    - name: Allow all access to port 22
+      become: true
+      ufw:
+        rule: allow
+        port: 22
+        
+    - name: Allow all access to port 80
+      become: true
+      ufw:
+        rule: allow
+        port: 80
+        
+    - name: Allow all access to port 8080
+      become: true
+      ufw:
+        rule: allow
+        port: 8080
+
+    - name: Allow all access to port 9000
+      become: true
+      ufw:
+        rule: allow
+        port: 9000
+        
+    - name: Allow all access to port 6443
+      become: true
+      ufw:
+        rule: allow
+        port: 6443
+        
+    - name: Allow all access to port 2345
+      become: true
+      ufw:
+        rule: allow
+        port: 2345
+
+    - name: Enable ufw
+      become: yes
+      ufw: state=enabled
+  
+ - hosts: kubernetes_slave
+   become: yes
+   tasks:
+   - name: Allow all access to port 22
+     ufw:
+       rule: allow
+       port: 22
+        
+   - name: Enable ufw
+     ufw: state=enabled
